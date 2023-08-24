@@ -1,3 +1,4 @@
+//go:build !windows
 // +build !windows
 
 package prompt
@@ -5,8 +6,9 @@ package prompt
 import (
 	"syscall"
 
-	"github.com/c-bata/go-prompt/internal/term"
 	"golang.org/x/sys/unix"
+
+	"github.com/c-bata/go-prompt/internal/term"
 )
 
 const maxReadBytes = 1024
@@ -68,7 +70,7 @@ var _ ConsoleParser = &PosixParser{}
 func NewStandardInputParser() *PosixParser {
 	in, err := syscall.Open("/dev/tty", syscall.O_RDONLY, 0)
 	if err != nil {
-		panic(err)
+		in = syscall.Stdin
 	}
 
 	return &PosixParser{
