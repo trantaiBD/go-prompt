@@ -8,7 +8,7 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	"github.com/c-bata/go-prompt/internal/term"
+	"github.com/trantaiBD/go-prompt/internal/term"
 )
 
 const maxReadBytes = 1024

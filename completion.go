@@ -3,8 +3,9 @@ package prompt
 import (
 	"strings"
 
-	"github.com/c-bata/go-prompt/internal/debug"
 	runewidth "github.com/mattn/go-runewidth"
+
+	"github.com/trantaiBD/go-prompt/internal/debug"
 )
 
 const (
